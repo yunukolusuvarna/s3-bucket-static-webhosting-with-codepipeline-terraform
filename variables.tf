@@ -1,8 +1,8 @@
-variable "prod_access_key" {
+variable "access_key" {
   description = "access key"
 }
 
-variable "prod_secret_key" {
+variable "secret_key" {
   description = "secret key"
 }
 
@@ -29,4 +29,10 @@ variable "repo_id" {
 variable "repo_branch_name" {
   default     = "main"
   description = "github branch name"
+}
+
+variable "connection_arn" {
+  type = string
+  description = "Arn for the CodeStar Connection"
+  default = "arn:aws:codestar-connections:us-east-1:387232581030:connection/35618a9e-fbb7-45d5-8cf3-3dd89e46b2ca"
 }

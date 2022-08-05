@@ -20,7 +20,7 @@ resource "aws_codepipeline" "codepipeline1" {
       #PollForSourceChanges = true
 
       configuration = {
-        ConnectionArn    = aws_codestarconnections_connection.easydeploy_github.arn
+        ConnectionArn    = data.aws_codestarconnections_connection.github.id
         FullRepositoryId = var.repo_id
         BranchName       = var.repo_branch_name
         #PollForSourceChanges = true
@@ -63,4 +63,8 @@ resource "aws_codepipeline" "codepipeline1" {
       }
     }
   }
+}
+
+data "aws_codestarconnections_connection" "github" {
+  arn = var.connection_arn
 }

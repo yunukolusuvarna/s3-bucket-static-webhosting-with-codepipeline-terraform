@@ -43,7 +43,7 @@ resource "aws_iam_role_policy" "codepipeline_policy1" {
       "Action": [
         "codestar-connections:UseConnection"
       ],
-      "Resource": "${aws_codestarconnections_connection.easydeploy_github.arn}"
+      "Resource": "${data.aws_codestarconnections_connection.github.id}"
     },
     {
       "Effect": "Allow",
