@@ -1,6 +1,6 @@
 ############################### CODEBUILD ROLE ######################################
 resource "aws_iam_role" "codebuild_role1" {
-  name = "${var.projectname1}-codebuild-role"
+  name = "${var.projectname}-codebuild-role"
 
   assume_role_policy = <<EOF
 {
@@ -17,9 +17,12 @@ resource "aws_iam_role" "codebuild_role1" {
 }
 EOF
 }
+data "aws_region" "current" {}
+
+data "aws_caller_identity" "current" {}  
 
 resource "aws_iam_role_policy" "codebuild_policy1" {
-  name = "${var.projectname1}-codebuild-policy"
+  name = "${var.projectname}-codebuild-policy"
   role = aws_iam_role.codebuild_role1.id
 
   policy = <<EOF
@@ -55,7 +58,7 @@ resource "aws_iam_role_policy" "codebuild_policy1" {
       "Action": [
         "ec2:CreateNetworkInterfacePermission"
       ],
-      "Resource": ["arn:aws:ec2:us-east-1:387232581030:network-interface/*"
+      "Resource": ["arn:aws:ec2:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:network-interface/*"
       ],
       "Condition": {
         "StringEquals": {

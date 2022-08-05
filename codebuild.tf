@@ -1,5 +1,5 @@
-resource "aws_codebuild_project" "codebuild1" {
-  name         = "${var.projectname1}-codebuild"
+resource "aws_codebuild_project" "codebuild" {
+  name         = "${var.projectname}-codebuild"
   description  = "code build project"
   service_role = aws_iam_role.codebuild_role1.arn
 

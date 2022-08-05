@@ -1,5 +1,5 @@
 resource "aws_codepipeline" "codepipeline1" {
-  name     = "${var.projectname1}-pipeline"
+  name     = "${var.projectname}-pipeline"
   role_arn = aws_iam_role.codepipeline_role1.arn
 
   artifact_store {
@@ -21,8 +21,8 @@ resource "aws_codepipeline" "codepipeline1" {
 
       configuration = {
         ConnectionArn    = aws_codestarconnections_connection.easydeploy_github.arn
-        FullRepositoryId = var.repo1_id
-        BranchName       = var.repo1_branch_name
+        FullRepositoryId = var.repo_id
+        BranchName       = var.repo_branch_name
         #PollForSourceChanges = true
       }
     }
@@ -41,7 +41,7 @@ resource "aws_codepipeline" "codepipeline1" {
       version          = "1"
 
       configuration = {
-        ProjectName = aws_codebuild_project.codebuild1.name
+        ProjectName = aws_codebuild_project.codebuild.name
       }
     }
   }

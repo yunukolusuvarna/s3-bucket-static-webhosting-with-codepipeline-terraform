@@ -16,17 +16,17 @@ variable "app_bucket_name" {
   description = "app bucket name"
 }
 
-variable "projectname1" {
+variable "projectname" {
   default     = "easydeploy"
   description = "pipeline project name"
 }
 
-variable "repo1_id" {
-  default     = "jerinrathnam/react-js-docker"
+variable "repo_id" {
+  default     = "easydeploy-cloud/reactjs-app-for-s3-static-webhosting"
   description = "github repository id"
 }
 
-variable "repo1_branch_name" {
+variable "repo_branch_name" {
   default     = "main"
   description = "github branch name"
 }
