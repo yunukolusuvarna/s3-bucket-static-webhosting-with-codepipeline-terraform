@@ -19,7 +19,7 @@ EOF
 }
 data "aws_region" "current" {}
 
-data "aws_caller_identity" "current" {}  
+data "aws_caller_identity" "current" {}
 
 resource "aws_iam_role_policy" "codebuild_policy1" {
   name = "${var.projectname}-codebuild-policy"

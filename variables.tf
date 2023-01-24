@@ -32,7 +32,6 @@ variable "repo_branch_name" {
 }
 
 variable "connection_arn" {
-  type = string
+  type        = string
   description = "Arn for the CodeStar Connection"
-  default = "arn:aws:codestar-connections:us-east-1:387232581030:connection/35618a9e-fbb7-45d5-8cf3-3dd89e46b2ca"
 }
